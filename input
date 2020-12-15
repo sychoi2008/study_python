@@ -1,0 +1,47 @@
+# input
+=> 사용자의 입력을 받는 것. 주의해야 할 점은 입력을 받으면 문자열로 받은 것이다.
+
+# 
+a = input('Input data : ')
+print(a)
+=> Input data : 로 출력이 되며 사용자의 입력을 기다린다. 내가 만약 100을 입력한다면 100을 출력
+
+#
+b = input()
+c = input()
+print(b+c)
+=> 내가 10과 20을 입력한다면 30이 아닌 1020으로 출력된다
+
+# input().split()
+split 괄호 안에 무엇을 넣는가에 따라 input으로 받은 값들을 자른다.
+EX) a,b,c = input().split(",")
+print(a+b+c) 일때, 입력으로 10,20,30(반드시 , 필수)넣는다면 출력으로 102030이 된다.
+
+#int()
+문자를 정수로 바꿔주는것 
+EX) a = input()
+b= input()
+a = int(a)
+b = int(b)
+c = int(input("input ready : "))
+print(a+b+c)
+
+# map()
+EX) map(int(), input().split(","))
+=> input().split(",") 먼저 실행 그다음 하나하나 int()실행시킴
+
+# a+b
+# 첫째줄에 a,b가 주어진다면? java와는 다르다. 자바의 경우에는, 
+Scanner s = new Scanner(System.in);
+int a = s.nextInt();
+int b = s.nextInt();
+System.out.println(a+b)
+로 처리가 된다. 
+
+#하지만 python은
+a,b = intput().split(" ") 
+=> 한줄에 띄어쓰기로 두 숫자를 구분하기 때문에 
+a = int(a)
+b = int(b)
+print(a+b)로 표현해야한다.
+
