@@ -38,10 +38,24 @@ int b = s.nextInt();
 System.out.println(a+b)
 로 처리가 된다. 
 
-#하지만 python은
+# 하지만 python은
 a,b = intput().split(" ") 
 => 한줄에 띄어쓰기로 두 숫자를 구분하기 때문에 
 a = int(a)
 b = int(b)
 print(a+b)로 표현해야한다.
 
+# 만약 input이 두줄에 걸쳐 들어온다면 EX) 3 \n 5 의 형식 
+a = int(input())
+b = int(input())
+print(a+b)
+이 코드로 가능하다. 
+
+# |a-b| 절대값을 구하는 코드를 짜보자
+a,b = input().split(" ")
+a = int(a)
+b = int(b)
+c = a-b
+if c<0 : 
+  c = c*-1
+print(c)
