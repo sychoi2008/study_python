@@ -1,0 +1,50 @@
+# 첫째 줄에는 별 1개, 둘째 줄에는 별 2개, N번째 줄에는 별 N개를 찍는 문제
+*
+**
+***
+****
+*****
+=>
+index = int(input())
+for i in range(index) :
+    print("*" * (i+1))
+# python에서는 문자열로도 연산이 가능하다. 
+# 같은 문제를 java의 경우에서는 이중 for문을 사용해야 한다.
+=> 
+import java.util.Scanner;
+
+public class MyClass {
+    public static void main(String args[]) {
+      Scanner s = new Scanner(System.in);
+      int index = s.nextInt();
+      for(int i = 1; i<=index; i++) {
+            for(int j = 1; j<=i; j++) {
+                System.out.print("*");
+            // 예를 들어, i = 3이라면 *을 3번 연속으로(개행없이) 출력하고 for문을 탈출 그리고 System.out.println()라는 개행을 만나서 한줄을 띈다.
+            }
+            System.out.println();
+        }
+    }
+}
+
+# 첫째 줄에는 별 1개, 둘째 줄에는 별 2개, N번째 줄에는 별 N개를 찍는 문제 하지만, 오른쪽을 기준으로 정렬한 별(예제 참고)을 출력하시오.
+=> 
+index = int(input())
+star = 1
+while index>0 :
+    print(" "*(index-1), end='')
+    print("*"*(star), end='\n')
+    index = index - 1
+    star += 1
+또는,     
+index = int(input())
+for i in range(index) :
+    print(" "*(index-i-1),end = '')
+    print("*"*(i+1))
+
+=> i=0, " "은 5-0-1 = 4이기에 공백을 4칸 출력. end때문에 바로 옆으로 별을 출력한다. *은 i+1=1이기에 하나를 출력 "    *"
+i=1, 5-1-1= 3이기에 공백을 3칸 출력. *은 i+1=2이기에 두개 출력 "   **"
+i=2, 5-2-1= 2이기에 공백을 2칸 출력. *은 i+1=3이기에 세개 출력 "  ***"
+i=3, 5-3-1= 1이기에 공백을 1칸 출력. *은 i+1=4이기에 네개 출력 " ****"
+i=4, 5-4-1= 0이기에 공백을 0칸 출력. *은 i+1=5이기에 다섯개 출력 "*****"
+
