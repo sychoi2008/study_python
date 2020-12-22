@@ -11,7 +11,7 @@ for i in range(index) :
     print("*" * (i+1))
 # python에서는 문자열로도 연산이 가능하다.
 
-# 같은 문제를 java의 경우에서는 이중 for문을 사용해야 한다.
+# java의 경우
 => 
 import java.util.Scanner;
 
@@ -56,7 +56,8 @@ i=2, 5-2-1= 2이기에 공백을 2칸 출력. *은 i+1=3이기에 세개 출력 
 i=3, 5-3-1= 1이기에 공백을 1칸 출력. *은 i+1=4이기에 네개 출력 " ****"
 i=4, 5-4-1= 0이기에 공백을 0칸 출력. *은 i+1=5이기에 다섯개 출력 "*****"
 
-#java의 경우에는 어떨까? java는 다음과 같다
+#java의 경우
+=>
 import java.util.Scanner;
 
 public class MyClass {
@@ -105,3 +106,74 @@ public class MyClass {
     }
 }
 
+# 첫째 줄에는 별 N개, 둘째 줄에는 별 N-1개, ..., N번째 줄에는 별 1개를 찍는 문제
+*****
+ ****
+  ***
+   **
+    *
+    
+=> 
+index = int(input())
+
+for i in range(index) :
+    print(" "*i,end='')
+    print("*"*(index-i))
+    
+    
+# java의 경우
+=> 
+import java.util.Scanner;
+
+public class MyClass {
+    public static void main(String args[]) {
+        Scanner s = new Scanner(System.in);
+        int index = s.nextInt();
+        
+        for(int i=0; i<index; i++) {
+            for(int j=1; j<=i; j++) {
+                System.out.print(" ");
+            }
+            for(int m=i+1; m<=index; m++) {
+                System.out.print("*");
+            }
+            System.out.println();
+        }
+    }
+}
+
+# 첫째 줄에는 별 1개, 둘째 줄에는 별 3개, ..., N번째 줄에는 별 2×N-1개를 찍는 문제
+    *
+   ***
+  *****
+ *******
+*********
+
+=> 
+index = int(input())
+
+for i in range(index) :
+    print(" "*(index-i-1), end='')
+    print("*"*(2*(i+1)-1))
+        
+=> java의 경우
+import java.util.Scanner;
+
+public class MyClass {
+    public static void main(String args[]) {
+        Scanner s = new Scanner(System.in);
+        int index = s.nextInt();
+        
+        for(int i=0; i<index; i++) {
+            for(int j=i; j<index; j++) {
+                System.out.print(" ");
+            }
+            for(int m=1; m<=2*(i+1)-1; m++) {
+                System.out.print("*");
+            }
+            System.out.println();
+        }
+    }
+}
+
+#
