@@ -19,6 +19,15 @@ b = 20
 c = 30
 print(a<b and b<c) => True를 출력
 
+# for문 
+for i in range(a) 형식
+for i in range(5) => 0,1,2,3,4 를 i에 넣는다
+for i in range(1, 5) => 1,2,3,4 를 i에 넣는다. n부터 n-1까지
+for i in range(2, 14, 2) => 2부터 +2하여 13까지 전진.  
+for i in range(5, -1, -1) => 5부터 -1하여 0까지 전진. 5,4,3,2,1,0
+기억해야 할 점은 항상 end는 왼쪽 전의 숫자까지를 출력한다는 점이다. 5, -1, -1 에서 end가 -1이라면 한칸 왼쪽 전은 0이므로 5부터 0까지를 출력
+
+
 # 조건문 예시
 같은 5를 입력으로 넣고 두 수의 합을 한 줄씩 출력하라.
 두 수의 입력이 1,2 인것과 1 2 인것은 다르다.
@@ -28,4 +37,18 @@ for i in range(index) :
           a,b = input().split(" ") 과 a,b = input().split(",")
           print(int(a) + int(b))
 
+# 조건문 예시 2
+숫자 두개를 입력 받으면 Case #1: 2 다음과 같은 형식으로 출력한다면?
 
+index = int(input())
+for i in range(index) :
+    a,b = input().split(" ") 과 a,b = input().split(",")
+    print("Case #%d: %d" % ((i+1), int(a) + int(b)))
+    
+=> java 일 경우는 System.out.format("Case #%d: %d\n", i, a+b); 로 표현
+
+#기찍 N 
+index = int(input())
+for i in range(index, 0, -1) :
+    print(i)
+    
