@@ -1,18 +1,35 @@
-# 첫째 줄에는 별 1개, 둘째 줄에는 별 2개, N번째 줄에는 별 N개를 찍는 문제
+#별찍기에서 핵심
+1) 반복문, 제어문을 잘 활용하기
+2) 함수 활용하기
+
+#python에서의 함수?
+def function(n) :
+    
+def 함수이름 (인자) :
+    함수 몸통 #반드시 들여쓰기는 필수이다.
+    
+    
+#(1) 첫째 줄에는 별 1개, 둘째 줄에는 별 2개, N번째 줄에는 별 N개를 찍는 문제
 *
 **
 ***
 ****
 *****
 
-=>
+#python
 index = int(input())
 for i in range(index) :
-    print("*" * (i+1))
-# python에서는 문자열로도 연산이 가능하다.
+    print("*" * (i+1)) # python에서는 문자열로도 연산이 가능하다.
+    
+#함수 사용
+def prints (n) :
+    for i in range(n) : print("*", end='')
+    print() 
 
-# java의 경우
-=> 
+index = int(input())    
+for i in range(1, index+1) : prints(i) # 1부터 index까지의 값을 prtins에 넣어줌
+
+#java
 import java.util.Scanner;
 
 public class MyClass {
@@ -29,14 +46,16 @@ public class MyClass {
     }
 }
 
-# 첫째 줄에는 별 1개, 둘째 줄에는 별 2개, N번째 줄에는 별 N개를 찍는 문제 하지만, 오른쪽을 기준으로 정렬한 별(예제 참고)을 출력하시오.
+#(2) 첫째 줄에는 별 1개, 둘째 줄에는 별 2개, N번째 줄에는 별 N개를 찍는 문제 하지만, 오른쪽을 기준으로 정렬한 별(예제 참고)을 출력하시오.
     *
    **
   ***
  ****
 *****
 
-=> 
+#포인트는 공백도 문자라는 점이다.
+
+#python
 index = int(input())
 star = 1
 while index>0 :
@@ -56,8 +75,18 @@ i=2, 5-2-1= 2이기에 공백을 2칸 출력. *은 i+1=3이기에 세개 출력 
 i=3, 5-3-1= 1이기에 공백을 1칸 출력. *은 i+1=4이기에 네개 출력 " ****"
 i=4, 5-4-1= 0이기에 공백을 0칸 출력. *은 i+1=5이기에 다섯개 출력 "*****"
 
-#java의 경우
-=>
+#함수사용
+def prints (mx, n) :
+    v = mx - n # 공백수, 4->3->2->1->0
+    for j in range(v) : print(" ", end='')
+    for i in range(n) : print("*", end='') # 별은 밑에서 range(1~)로 선정해놓았기 때문에 1부터 출력. 변수를 변형하지 않고 그대로 출력 가능
+    print()
+
+index = int(input())    
+for i in range(1, index+1) : prints(index, i) # (5,1) (5,2) (5,3) (5,4) (5,5)
+#아! range의 범위를 (n,m)처럼 정해놓는게 더 좋구나.
+
+#java
 import java.util.Scanner;
 
 public class MyClass {
@@ -76,21 +105,28 @@ public class MyClass {
     }
 }
 
-# 첫째 줄에는 별 N개, 둘째 줄에는 별 N-1개, ..., N번째 줄에는 별 1개를 찍는 문제
+#(3) 첫째 줄에는 별 N개, 둘째 줄에는 별 N-1개, ..., N번째 줄에는 별 1개를 찍는 문제
 *****
 ****
 ***
 **
 *
 
-=> 
+#python
 index = int(input())
 
 for i in range(index) :
     print("*"*(index-i))
 
-# java의 경우
-=>
+#함수
+def prints (n) :
+    for i in range(n) : print("*", end='')
+    print()
+
+index = int(input())    
+for i in range(index, 0, -1) : prints(i) # 내림차순 range는 이렇게 생각해보자. index = 5라면, 5,4,3,2...식으로 흘러갈 것이다. 항상 range는 마지막으로 지정해 놓은 숫자가 되기 전에(여기서는 0) 끝나므로 5,4,3,2,1이 되는 것이다.
+
+#java
 import java.util.Scanner;
 
 public class MyClass {
@@ -106,23 +142,31 @@ public class MyClass {
     }
 }
 
-# 첫째 줄에는 별 N개, 둘째 줄에는 별 N-1개, ..., N번째 줄에는 별 1개를 찍는 문제
+#(4) 첫째 줄에는 별 N개, 둘째 줄에는 별 N-1개, ..., N번째 줄에는 별 1개를 찍는 문제
 *****
  ****
   ***
    **
     *
     
-=> 
+#python
 index = int(input())
 
 for i in range(index) :
     print(" "*i,end='')
     print("*"*(index-i))
-    
-    
-# java의 경우
-=> 
+
+#함수    
+def prints (mv, n) :
+    v = mv-n #공백 계산. 0,1,2,3,4
+    for j in range(v) : print(" ", end ='')
+    for i in range(n) : print("*", end='')
+    print()
+
+index = int(input()) 
+for i in range(index, 0, -1) : prints(index, i) #index가 5라면, i = 5,4,3,2,1 (5,5) (5,4) (5,3) (5,2) (5,1))
+
+#java
 import java.util.Scanner;
 
 public class MyClass {
@@ -142,21 +186,25 @@ public class MyClass {
     }
 }
 
-# 첫째 줄에는 별 1개, 둘째 줄에는 별 3개, ..., N번째 줄에는 별 2×N-1개를 찍는 문제
+#(5) 첫째 줄에는 별 1개, 둘째 줄에는 별 3개, ..., N번째 줄에는 별 2×N-1개를 찍는 문제
     *
    ***
   *****
  *******
 *********
 
-=> 
+#python
 index = int(input())
 
 for i in range(index) :
     print(" "*(index-i-1), end='')
     print("*"*(2*(i+1)-1))
+    
+#함수
+
+
         
-=> java의 경우
+#java
 import java.util.Scanner;
 
 public class MyClass {
@@ -176,7 +224,7 @@ public class MyClass {
     }
 }
 
-# 첫째 줄에는 별 2×N-1개, 둘째 줄에는 별 2×N-3개, ..., N번째 줄에는 별 1개를 찍는 문제
+#(6) 첫째 줄에는 별 2×N-1개, 둘째 줄에는 별 2×N-3개, ..., N번째 줄에는 별 1개를 찍는 문제
 *********
  *******
   *****
