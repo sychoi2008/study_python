@@ -1,7 +1,150 @@
-#(12) 첫째 줄부터 2×N-1번째 줄까지 차례대로 별을 출력한다.
-
+#(12) 첫째 줄부터 2×N-1번째 줄까지 차례대로 별을 출력하는 문제
   *
  **
 ***
  **
   *
+
+#함수
+def prints (v, n) :
+    for j in range(v) : print(" ", end='')
+    for i in range(n) : print("*", end='') 
+    print()
+
+index = int(input())    
+for i in range(1, index+1) : prints(index-i, i) # 1~3. (2,1) (1,2) (0,3) 
+for j in range(index-1,0,-1) : prints(index-j, j) # 2,1. (3-2, 2) (3-1, 1)
+
+#python
+index = int(input())
+
+for i in range(index) :
+    print(" "*(index-(i+1)),end='')
+    print("*"*(i+1))
+    
+for j in range(index-1) :
+    print(" "*(j+1), end='')
+    print("*"*((index-1)-j))
+
+
+#(13) 첫째 줄부터 2×N-1번째 줄까지 차례대로 별을 출력하는 문제
+*
+**
+***
+**
+*
+
+#함수
+def prints (v, n) :
+    for j in range(v) : print("*", end='')
+    for i in range(n) : print(" ", end='') 
+    print()
+
+index = int(input())    
+for i in range(1, index+1) : prints(i, index-i) # 1~3. (1,2) (2,1) (3,0) 
+for j in range(index-1,0,-1) : prints(j, index-j) # 2,1. (2,1) (1,2)
+
+#python
+index = int(input())
+
+for i in range(index) :
+    print("*"*(i+1))
+    
+for j in range(index-1) :
+    print("*"*((index-1)-j))
+    
+
+#(15) 첫째 줄부터 2×N-1번째 줄까지 차례대로 별을 출력하는 문제
+   *
+  * *
+ *   *
+*     *
+#별을 출력하는 것이 처음과 마지막이고 나머지는 공백으로 출력. 즉, 처음과 마지막만 알면 된다.
+
+#함수
+def prints (v, n) :
+    for j in range(v) : print(" ", end='')
+    for i in range(2*n-1) : 
+        if i==0 or i==2*n-2 : print("*", end='')
+        else : print(" ", end='')
+    print()
+
+index = int(input()) #4라고 할 때
+for i in range(1, index+1) : prints(index-i, i) #1~4. (3,1) (2,2) (1,3) (0,4)
+
+#python
+index = int(input())
+
+for i in range(index) :
+    print(" "*(index-(i+1)),end='')
+    print("*",end='')
+    if i==0 :
+        print()
+    else :
+        print(" "*(2*i-1), end='')
+        print("*")
+               
+#(16) 첫째 줄부터 N번째 줄까지 차례대로 별을 출력한다.
+   *
+  * *
+ * * *
+* * * *
+
+#함수
+def prints (v, n) :
+    for j in range(v) : print(" ", end='')
+    for i in range(2*n-1) : 
+        print("*" if i%2==0 else " ", end='') #i==0 이여도 나머지는 0이다. 
+    print()
+
+index = int(input()) #4라고 할 때
+for i in range(1, index+1) : prints(index-i, i) #1~4. (3,1) (2,2) (1,3) (0,4)
+
+#python
+index = int(input())
+
+for i in range(index) :
+    print(" "*(index-(i+1)),end='')
+    print("*",end='')
+    if i==0 : 
+        print()
+    else :
+        for j in range(i) :
+            print(" ",end='')
+            print("*",end='')
+        print()
+
+
+#(17) 
+   *
+  * *
+ *   *
+*******
+
+#함수
+def prints (v, n) : #v가 0이면 마지막이라는 것을 알려줌
+    for j in range(v) : print(" ", end='')
+    for i in range(2*n-1) : 
+        if v==0 : print("*", end='')
+        else : print("*" if (i==0 or i==2*n-2) else " ", end='')
+    print()
+
+index = int(input()) #4 라고 할 때
+for i in range(1, index+1) : prints(index-i, i) #1~4. (3,1) (2,2) (1,3) (0,4)
+
+#python
+index = int(input())
+
+for i in range(index) :
+    print(" "*(index-(i+1)),end='')
+    print("*",end='')
+    if i==0 :
+        print()
+    elif i==index-1 :
+        print("*"*(2*i))
+    else :
+        print(" "*(2*i-1), end='')
+        print("*")
+        
+        
+#(20) 
