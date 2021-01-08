@@ -27,3 +27,34 @@ for i in range(stu) : # 0,1,2,3,4
 
 print(count)
 
+# 소수
+def sosu(n) :
+    if n == 1 : return False
+    for i in range(2,n) : 
+        if n%i == 0 : return False
+    return True    
+'''
+의문점은 이것! 2는 어떻게 된 것인가.
+1~9까지의 숫자를 생각해보자. 1은 소수가 아니기에 False이다. 
+하지만 2가 들어간다면, for i in range(2,2)인데 2~1의 숫자가 i가 되는데, 이는 말 자체가 되지 않기 때문에 for문이 돌아가지 않아 True가 된다!
+따라서 2는 소수로 판정이 된다.
+'''
+'''
+n = 100일 때, 
+100을 2~99로 하나씩 나누어 본다. 100은 2로 나누어졌기 때문에 False가 되고 소수가 아니다!
+n = 61일 때,
+61을 2~60로 하나씩 나누어 본다. 61은 어떤 숫자로도 나누어질 수 없기 때문에 True가 되고 소수이기 때문에 밑에 밑의 for문의 if문이 실행된다.
+'''
+a = int(input()) #60
+b = int(input()) #100
+sum = 0
+min = 0
+
+for i in range(b, a-1, -1) : #end숫자에서 내려가기 때문에 가장 마지막 숫자가 최소값이 된다. 100,99,98...60
+    if(sosu(i)) : #함수에서 나온 값이 True일 경우에만 소수인 것이다.
+        sum += i
+        min = i
+if sum == 0 : print(-1)
+else : 
+    print(sum)
+    print(min)
