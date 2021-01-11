@@ -1,3 +1,4 @@
+#카잉 달력
 index = int(input())
 
 while index>0 :
