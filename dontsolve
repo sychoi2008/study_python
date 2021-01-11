@@ -1,0 +1,21 @@
+index = int(input())
+
+while index>0 :
+    index -= 1
+    m,n,x,y = map(int, input().split())
+    a = 0
+    b = 0
+    add = x-1 if m>n else y-1 #add가 1이면 시간초과가 되기 때문에... 하지만 add가 몇인지는 중요하지 않음
+    
+    cnt = 1
+    while True :
+        if a == x-1 and b == y-1 : break
+        if cnt > m*n : break
+        
+        cnt += add
+        a = (a+add)%m
+        b = (b+add)%n
+        
+        add = m if m>n else n
+    
+    print(-1 if cnt>m*n else cnt)
