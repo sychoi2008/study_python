@@ -20,3 +20,17 @@ while index>0 :
         add = m if m>n else n
     
     print(-1 if cnt>m*n else cnt)
+
+# 개미 무빙
+def getvalue(s, max, cnt) :
+    res = (s+t) % (max*2) #현재 있는 곳 + 시간. 그거를 최대값*2로 나눈 나머지
+    if res > max : res = (max*2) - res #왜 2를 곱해야하는걸까? 0으로 초기화 되는 곳이 바로 최대값의 배수가 있는 곳이기 때문이다.
+    return res
+
+w,h = map(int, input().split())
+x,y = map(int, input().split())
+t = int(input())
+
+print(getvalue(x,w,t),end='')
+print(" ",end='')
+print(getvalue(y,h,t))
